@@ -58,7 +58,31 @@ class LinkedList:
                 return
             current = current.next
         
-        print("VAlue not FOund")
+        print("Value not Found")
+        
+    def length(self):
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+        
+        return count
+    
+    def reverse(self):
+        prev_node = None
+        current = self.head
+        next_node = None
+
+        while current:
+            next_node = current.next
+            current.next = prev_node
+            prev_node = current
+            current = next_node
+        
+        self.head = prev_node
+                
+
         
 
         
@@ -84,4 +108,8 @@ ll.delete(99)
 ll.display()
 
 ll.delete(5)     
+ll.display()
+
+print(ll.length())
+ll.reverse()
 ll.display()
